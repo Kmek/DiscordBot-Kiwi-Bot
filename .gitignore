@@ -1,0 +1,2 @@
+# Don't track this folder from NodeJS
+node_modules/

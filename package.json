@@ -1,0 +1,23 @@
+{
+  "name": "DiscordBot-Kiwi-Bot",
+  "version": "1.0.0",
+  "description": "- Change status to \"In class: className\" during my scheduled class\r - Change back to original status when class ends\r - Set myself to busy during class so I don't get notifications in class, change back afterwards\r - Send me a reminder 20 minutes before class starts\r - Add the option to turn it off for the day (like for a holiday or snowday in the middle of the week)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kmek/DiscordBot-Kiwi-Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kmek/DiscordBot-Kiwi-Bot/issues"
+  },
+  "homepage": "https://github.com/Kmek/DiscordBot-Kiwi-Bot#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}
