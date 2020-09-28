@@ -22,7 +22,7 @@ client.on("message", (message) => {
     // Prevent bot from reading its own messages
     if (message.author.bot) return;
 
-    console.log(message.channel.id);
+    // console.log(message.channel.id);
 
     // Ping Pong test
     if (message.content.startsWith("ping")) {
