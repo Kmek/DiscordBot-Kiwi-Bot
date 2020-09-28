@@ -1,22 +1,20 @@
 // Kate Keefe
 // DiscordBot-Kiwi-Bot
 
+// Prerequisites:
 const Discord = require("discord.js");
 const config = require ("./config.json");
-const TimedStatus = require('./TimedStatus.js');
+const Reminder = require('./Reminder.js');
 const client = new Discord.Client();
 
 // Go!
 client.login(config.token);
 
 // Shows when bot is ready to go
-client.on("ready", () => {
-    console.log("I am ready!");
-});
+client.on("ready", async () => {
+    console.log("\n" + client.user.username);
 
-// When the bot stops
-client.on("disconnect", function(event){
-    console.log(`The WebSocket has closed and will no longer attempt to reconnect`);
+    console.log("I am ready!");
 });
 
 // Ping Pong test
@@ -36,9 +34,6 @@ client.on("message", (message) => {
             client.destroy();
         });
     }
-
-    // let test = new TimedStatus("asdfghj!!");
-    // message.channel.send(test.printTest());
 });
 
 // Start with "node bot.js"
