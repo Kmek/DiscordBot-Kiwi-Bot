@@ -2,8 +2,9 @@
 // DiscordBot-Kiwi-Bot
 
 const Discord = require("discord.js");
-const client = new Discord.Client();
+const TimedStatus = require('./TimedStatus.js');
 
+const client = new Discord.Client();
 // Go!
 client.login("token");
 
@@ -19,14 +20,24 @@ client.on("disconnect", function(event){
 
 // Ping Pong test
 client.on("message", (message) => {
+    // Prevent bot from reading its own messages
+    if (message.author.bot) return;
+
+    // Ping Pong test
     if (message.content.startsWith("ping")) {
         message.channel.send("pong!");
-    } else if (message.content === "shutdown") {
+    } else 
+    
+    // Shutdown
+    if (message.content === "shutdown") {
         message.channel.send('Shutting down...').then(m => {
             console.log("Shutting down...");
             client.destroy();
         });
     }
+
+    // let test = new TimedStatus("asdfghj!!");
+    // message.channel.send(test.printTest());
 });
 
 // Start with "node bot.js"
