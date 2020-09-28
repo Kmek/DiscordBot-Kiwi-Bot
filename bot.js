@@ -2,11 +2,12 @@
 // DiscordBot-Kiwi-Bot
 
 const Discord = require("discord.js");
+const config = require ("./config.json");
 const TimedStatus = require('./TimedStatus.js');
-
 const client = new Discord.Client();
+
 // Go!
-client.login("token");
+client.login(config.token);
 
 // Shows when bot is ready to go
 client.on("ready", () => {
