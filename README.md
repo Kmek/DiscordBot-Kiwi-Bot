@@ -23,3 +23,12 @@
 
 - `ping` - Pings the bot, who responds with "pong!"
 - `shutdown` - Properly closes the bot's program
+- `listReminders` - Prints out each reminder with its index from the reminders array
+
+### Ideas for Upcoming Commands:
+- `addReminder` 
+- `removeReminder`
+- `disableAllReminders`
+- `enableAllReminders`
+- `editReminder`
+- `inspectReminder`

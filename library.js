@@ -19,7 +19,7 @@ module.exports = {
         for (let i = 0; i < data.length; i++) {
             let d = data[i];
             console.log("\t" + d.name)
-            remindersArray.push(new Reminder(d.name, d.when, d.reminderTime, d.description));
+            remindersArray.push(new Reminder(d.name, new Date(d.when), d.reminderTime, d.description));
         }
         
         return remindersArray;
