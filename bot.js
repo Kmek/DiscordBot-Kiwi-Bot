@@ -2,12 +2,60 @@
 // DiscordBot-Kiwi-Bot
 
 // Prerequisites:
+const { Console } = require("console");
 const Discord = require("discord.js");
-const config = require ("./config.json");
+const fs = require('fs');
+// My Prerequisites:
+const config = require("./config.json");
 const Reminder = require("./Reminder.js");
-const client = new Discord.Client();
+const lib = require("./library.js");
+
+
+// idea: trying to get weather
+// var request = require("request");
+// request({
+//   uri: "https://www.wunderground.com/hourly/us/nh/durham",
+// }, function(error, response, body) {
+//   console.log(body);
+// });
+
+// const request = require('request');
+// const options = {
+//   url: 'https://api.github.com/repos/request/request',
+//   headers: {
+//     'User-Agent': 'request'
+//   }
+// };
+// function callback(error, response, body) {
+//   if (!error && response.statusCode == 200) {
+//       console.log(body)
+//     // const info = JSON.parse(body);
+//     // console.log(info.stargazers_count + " Stars");
+//     // console.log(info.forks_count + " Forks");
+//   }
+// }
+// request(options, callback);
+
+/////////////////////////////////////////
+
+// Holds all of the reminders
+var reminders = lib.importReminders([]);
+// console.log(reminders);
+
+
+// Saves the reminders to their saves.json file
+lib.exportReminders(reminders);
+// let rem = new Reminder("test reminder", [new Date("November 1, 2020 08:50:00")], 10, "this is my description");
+// let rem2 = new Reminder("test reminder", [new Date("November 1, 2020 08:50:00")], 10, "this is my description");
+// // console.log(JSON.stringify([rem, rem2]))
+// // console.log(JSON.stringify(reminders))
+// fs.writeFileSync("savedReminders.json", JSON.stringify([rem, rem2]))
+
+// fixme remove
+return
 
 // Go!
+const client = new Discord.Client();
 client.login(config.token);
 
 // Shows when bot is ready to go

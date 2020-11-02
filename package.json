@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Kmek/DiscordBot-Kiwi-Bot#readme",
   "dependencies": {
-    "discord.js": "^12.3.1"
+    "discord.js": "^12.3.1",
+    "request": "^2.88.2"
   }
 }
