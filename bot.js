@@ -16,6 +16,16 @@ var reminders = lib.importReminders([]);
 // Saves the reminders to their saves.json file
 // lib.exportReminders(reminders);
 
+
+// var now1 = new Date();
+// let rem = new Reminder("test reminder", new Date("November 1, 2020 08:50:00"), 10, "this is my description");
+// let rem2 = new Reminder("test reminder", new Date("November 3, 2020 08:50:00"), 10, "this is my description");
+// console.log(rem.getDate() < now1);
+// console.log(rem2.getDate() < now1);
+// // fixme
+// return
+
+
 // Go!
 const client = new Discord.Client();
 client.login(config.token);
@@ -30,17 +40,16 @@ client.on("ready", async () => {
 // When the bot sees a new message:
 client.on("message", (message) => {
     // Prevent bot from reading its own messages
-    if (message.author.bot) return;
-
-    // console.log(message.channel.id);
+    if (message.author.bot || !message.content.startsWith(config.prefix)) 
+        return;
 
     // Ping Pong test
-    if (message.content.startsWith("ping")) {
+    if (message.content.startsWith(config.prefix + "ping")) {
         message.channel.send("pong!");
     } else 
     
     // Shutdown
-    if (message.content === "shutdown") {
+    if (message.content.startsWith(config.prefix + "shutdown")) {
         message.channel.send("Shutting down...").then(m => {
             console.log("Shutting down...");
             clearInterval(timer);
@@ -49,7 +58,7 @@ client.on("message", (message) => {
     } else 
 
     // ListReminders
-    if (message.content.startsWith("listReminders")) {
+    if (message.content.startsWith(config.prefix + "listReminders")) {
         for (let i = 0; i < reminders.length; i++) {
             message.channel.send(i + ": " + reminders[i].toString());
         }
@@ -57,12 +66,26 @@ client.on("message", (message) => {
 
 });
 
+// Shortcut for getting the shortened date
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 // A 60 second interval will check if any reminders need to be sent every minute
 var timer = setInterval(function() {
     var now = new Date();
     console.log("interval firing " + weekDays[now.getDay()] + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds());
+
+    for (let i = 0; i < reminders.length; i++) {
+        // idea check if time is within ~10 minutes before sending a message
+        // console.log((now.getTime() - reminders[i].when.getTime()))
+
+        if (reminders[i].when < now) {
+            // Send message
+            client.channels.cache.get(config.channel).send("Reminder! " + reminders[i].toMessage());
+
+            // Increment the sent reminder
+            reminders[i].incrementDate();
+        }
+    }
 }, 6000);
 // fixme: remember to change this to 60000 once testing is done
 

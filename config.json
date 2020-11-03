@@ -1,4 +1,6 @@
 {
     "token": "token",
-    "nickname": "Kiwi"
+    "nickname": "Kiwi",
+    "prefix": "/",
+    "channel": "channel-id"
 }

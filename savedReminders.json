@@ -1,1 +1,14 @@
-[{"name":"test reminder","when":"2020-11-01T13:50:00.000Z","reminderTime":10,"description":"this is my description"},{"name":"test reminder","when":"2020-11-01T13:50:00.000Z","reminderTime":10,"description":"this is my description"}]
+[
+	{
+		"name": "Math425H Monday",
+		"when": "2020-11-01T13:50:00.000Z",
+		"description": "this is my description",
+		"increment": 7
+	},
+	{
+		"name": "CS416 Monday",
+		"when": "2020-11-01T13:50:00.000Z",
+		"description": "this is my description",
+		"increment": 7
+    }
+]
