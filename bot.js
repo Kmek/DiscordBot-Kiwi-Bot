@@ -10,21 +10,14 @@ const config = require("./config.json");
 const Reminder = require("./Reminder.js");
 const lib = require("./library.js");
 
+// console.log(JSON.stringify(new Date("November 1, 2020 15:20:00")))
+// return
+
 // Holds all of the reminders
 var reminders = lib.importReminders([]);
 
 // Saves the reminders to their saves.json file
-// lib.exportReminders(reminders);
-
-
-// var now1 = new Date();
-// let rem = new Reminder("test reminder", new Date("November 1, 2020 08:50:00"), 10, "this is my description");
-// let rem2 = new Reminder("test reminder", new Date("November 3, 2020 08:50:00"), 10, "this is my description");
-// console.log(rem.getDate() < now1);
-// console.log(rem2.getDate() < now1);
-// // fixme
-// return
-
+lib.exportReminders(reminders);
 
 // Go!
 const client = new Discord.Client();
@@ -80,7 +73,7 @@ var timer = setInterval(function() {
 
         if (reminders[i].when < now) {
             // Send message
-            client.channels.cache.get(config.channel).send("Reminder! " + reminders[i].toMessage());
+            client.channels.cache.get(config.channel).send("Reminder! " + reminders[i].getDescription());
 
             // Increment the sent reminder
             reminders[i].incrementDate();

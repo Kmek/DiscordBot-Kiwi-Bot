@@ -1,14 +1,26 @@
 [
 	{
-		"name": "Math425H Monday",
-		"when": "2020-11-01T13:50:00.000Z",
-		"description": "this is my description",
+		"name": "Math425H Mon",
+		"when": "2020-11-09T13:50:00.000Z",
+		"description": "Math at 9:10 in the morning! Time for class!",
 		"increment": 7
 	},
 	{
-		"name": "CS416 Monday",
-		"when": "2020-11-01T13:50:00.000Z",
-		"description": "this is my description",
+		"name": "CS416 Mon",
+		"when": "2020-11-09T20:00:00.000Z",
+		"description": "CS at 3:10 in the afternoon!",
 		"increment": 7
-    }
+	},
+	{
+		"name": "IT403 Tue",
+		"when": "2020-11-03T14:20:00.000Z",
+		"description": "IT time at 9:40 in the morning!",
+		"increment": 7
+	},
+	{
+		"name": "Phys407H Tue",
+		"when": "2020-11-03T20:20:00.000Z",
+		"description": "Physics time :( at 3:40",
+		"increment": 7
+	}
 ]

@@ -16,6 +16,10 @@
    - Save a list of menu items I like and don't like, so they can get highlighted when printing the menu (this persists in a file somewhere)
    - Option to add and remove items to these three categories (good (green), bad (red), ehh (yellow))
 - Add prefix variable to config file (maybe `/`?)
+- Add a `.bat` file to start a `.ps1` file that starts a terminal and starts the bot
+   - Can be shut down with the `shutdown` command
+   - Terminal can be hidden so there isn't even a window to see anymore (at that point it's just a background process)
+   - Can have this saved as a shortcut on my desktop to start the bot
 
 ---
 

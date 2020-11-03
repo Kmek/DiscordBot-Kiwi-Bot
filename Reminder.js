@@ -8,10 +8,26 @@ module.exports = class Reminder {
         this.when = when; // When the class is, ex month day and time. Times are in military time, so no confusion with am and pm. 
         this.description = description // Description of the reminder, ex: "Go to class! 3:10"
         this.increment = increment; // The number of days to increase the reminder by, like 1 for every day, or 7 for every week
+
+        this.bringUpToDate(); // Pick up slack if the reminder has been turned off for awhile
+    }
+
+    bringUpToDate() {
+        var now = new Date();
+
+        while (this.when < now) {
+            // console.log(this.when)
+            this.incrementDate();
+            // console.log(this.when)
+        }
     }
 
     getDate() {
         return this.when;
+    }
+
+    getDescription() {
+        return this.description;
     }
 
     incrementDate() {
